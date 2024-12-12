@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Element Selection</title>
+</head>
+<body>
+    <h1>Lorem, ipsum dolor.</h1>
+    <h1>Lorem ipsum dolor sit.</h1>
+    <h2>Lorem ipsum dolor sit amet consectetur.</h2>
+    <h2>Lorem ipsum dolor sit amet.</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, consequuntur!</p>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto, ipsa.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, quo.</p>
+    <button id ="changeBG">Change Colour</button>
+
+
+    <script>
+        const para = document.querySelectorAll("p");
+        const h1 = document.querySelectorAll("h1");
+        const h2 = document.querySelectorAll("h2");
+        const changeBG = document.getElementById("changeBG");
+
+        function getRamdomColor(){
+            const r = Math.floor(Math.random()*256);
+            const g = Math.floor(Math.random()*256);
+            const b = Math.floor(Math.random()*256);
+            const color1 = `rgb(${r},${g},${b})`;
+            const color2 = `rgb(${256-r},${256-g},${256-b})`
+            return {color1,color2};
+        }
+
+        function changecolor(){
+            para.forEach(
+                element =>{
+                    const abc = getRamdomColor();
+                    element.style.backgroundColor = abc.color1;
+                    element.style.color = abc.color2;
+                }
+            )
+            h1.forEach(
+                heading1 =>{
+                    const def = getRamdomColor();
+                    heading1.style.backgroundColor = def.color1;
+                    heading1.style.color = def.color2;
+                }
+            )
+            h2.forEach(
+                heading2 =>{
+                    const ghi = getRamdomColor();
+                    heading2.style.backgroundColor = ghi.color1;
+                    heading2.style.color = ghi.color2;
+                }
+            )
+            
+            const callfunc = getRamdomColor();
+            changeBG.style.backgroundColor = callfunc.color1;
+            changeBG.style.color = callfunc.color2;
+        }
+        changeBG.addEventListener("click",changecolor);
+
+
+    </script>
+
+    
+</body>
+</html>
